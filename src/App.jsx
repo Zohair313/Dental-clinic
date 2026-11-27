@@ -14,27 +14,8 @@ import { initAnimations } from './animations'
 
 export default function App() {
   useEffect(() => {
-    let cleanup = null
-
-    const timer = setTimeout(() => {
-      // 1. Initialize Lenis & GSAP ScrollTriggers
-      cleanup = initAnimations()
-
-      // 2. Trigger native Webflow IX3 if present
-      if (typeof window.initVelourIX3 === 'function') {
-        window.initVelourIX3()
-      }
-
-      // 3. Notify Webflow
-      if (window.Webflow && typeof window.Webflow.ready === 'function') {
-        window.Webflow.ready()
-      }
-    }, 150)
-
-    return () => {
-      clearTimeout(timer)
-      if (cleanup) cleanup()
-    }
+    const cleanup = initAnimations()
+    return () => cleanup()
   }, [])
 
   return (

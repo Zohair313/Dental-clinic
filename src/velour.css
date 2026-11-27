@@ -16,7 +16,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-s
 
 /* ========== Velour Base & Layout Enhancements ========== */
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,9 +29,9 @@ body {
 }
 
 .gsap_split_letter-mask {
-  overflow: clip !important;
-  position: relative !important;
-  display: inline-block !important;
+  overflow: clip;
+  position: relative;
+  display: inline-block;
 }
 
 .gsap_split_letter,
@@ -49,14 +48,12 @@ body {
 .gsap_split_word10,
 .gsap_split_word11,
 .gsap_split_word12 {
-  position: relative !important;
-  display: inline-block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  position: relative;
+  display: inline-block;
 }
 
 .home_hero-overlay {
-  opacity: 0.6 !important;
+  opacity: 0.6;
 }
 
 /* CTA initial states for Webflow IX3 scroll scrub */
@@ -113,44 +110,18 @@ a.button {
 
 .button_text.is-static {
   display: block;
-  transform: translateY(0%);
-  opacity: 1;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
 }
 
 .button_text.is-absolute {
   display: block;
   position: absolute;
   inset: 0;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-}
-
-.button:hover .button_text.is-static,
-a.button:hover .button_text.is-static {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-
-.button:hover .button_text.is-absolute,
-a.button:hover .button_text.is-absolute {
-  transform: translateY(0%);
-  opacity: 1;
+  transform: translateY(85%);
 }
 
 /* 2. Services Card Hover & Diagonal Arrow Slide */
 .home_services_item {
   cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-.home_services-image {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.home_services_item:hover .home_services-image {
-  transform: scale(1.04);
 }
 
 .home_services-icon-wrapper {
@@ -160,47 +131,18 @@ a.button:hover .button_text.is-absolute {
 
 .home_services-icon-image.is-static {
   display: block;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
 .home_services-icon-image.is-absolute {
   position: absolute;
   inset: 0;
   transform: translate(-100%, 100%);
-  opacity: 0;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-}
-
-.home_services_item:hover .home_services-icon-image.is-static {
-  transform: translate(100%, -100%);
-  opacity: 0;
-}
-
-.home_services_item:hover .home_services-icon-image.is-absolute {
-  transform: translate(0, 0);
-  opacity: 1;
 }
 
 /* 3. Team Card Hover Zoom */
 .home-team-card_component {
   cursor: pointer;
   overflow: hidden;
-}
-
-.home-team-card-image {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.home-team-card_component:hover .home-team-card-image {
-  transform: scale(1.08);
-}
-
-.home-team-card_bullet {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.home-team-card_component:hover .home-team-card_bullet {
-  transform: scale(0.75);
 }
 
 /* 4. Results Card Hover */
