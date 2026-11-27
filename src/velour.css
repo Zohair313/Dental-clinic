@@ -14,15 +14,66 @@ html.lenis,html.lenis body{height:auto}
 /* ========== Webflow Style Tag 5 ========== */
 body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-smoothing:antialiased;text-rendering:optimizeLegibility}*[tabindex]:focus-visible{outline:0.125rem solid #4d65ff;outline-offset:0.125rem}.hide{display:none!important}@media screen and (max-width:991px){.hide,.hide-tablet{display:none!important}}
 
-/* Ensure smooth scrolling and font rendering */
+/* ========== Velour Base & Layout Enhancements ========== */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color--background-primary, #f5f4f0);
+  color: var(--text-color--text-primary, #1e1e1e);
+  font-family: "Inter Tight", sans-serif;
+}
+
+.gsap_split_letter-mask {
+  overflow: clip !important;
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.gsap_split_letter,
+.gsap_split_word,
+.gsap_split_word1,
+.gsap_split_word2,
+.gsap_split_word3,
+.gsap_split_word4,
+.gsap_split_word5,
+.gsap_split_word6,
+.gsap_split_word7,
+.gsap_split_word8,
+.gsap_split_word9,
+.gsap_split_word10,
+.gsap_split_word11,
+.gsap_split_word12 {
+  position: relative !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.home_hero-overlay {
+  opacity: 0.6 !important;
+}
+
+.section-cta_image-wrapper {
+  display: block !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.section-cta_card-wrapper {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 .sf-hidden {
   display: none !important;
 }
+
 @media screen and (min-width: 992px) {
   .section-cta_image-wrapper.sf-hidden {
     display: block !important;

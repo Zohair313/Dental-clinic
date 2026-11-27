@@ -4,10 +4,4 @@
   html {
     scroll-behavior: smooth;
   }
-  body {
-    margin: 0;
-    padding: 0;
-    color: #1e293b;
-    background-color: #f8fafc;
-  }
 }
