@@ -59,41 +59,14 @@ body {
   opacity: 0.6 !important;
 }
 
-/* CTA overrides removed to allow GSAP scroll scrub */
-.section-cta_component {
-  position: relative;
-  height: 250vh;
-  background-color: var(--background-color--background-tertiary, #edebe5);
-}
-
-.section-cta_container {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.section-cta_headline-wrapper {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  pointer-events: none;
+/* CTA initial states for Webflow IX3 scroll scrub */
+.section-cta_image-wrapper {
+  opacity: 0;
+  transform: scale(0);
 }
 
 .section-cta_card-wrapper {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
+  opacity: 0;
 }
 
 /* Hide duplicate navbar buttons */
