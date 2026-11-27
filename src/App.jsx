@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useLayoutEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -13,7 +13,7 @@ import Footer from './components/Footer'
 import { initAnimations } from './animations'
 
 export default function App() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const cleanup = initAnimations()
     return () => cleanup()
   }, [])

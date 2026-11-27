@@ -749,12 +749,7 @@ export function initAnimations() {
   gsap.ticker.lagSmoothing(0)
 
   const root = createScope()
-  const scopes = [root]
-  const childScope = () => {
-    const scope = createScope()
-    scopes.push(scope)
-    return scope
-  }
+  const childScope = () => createScope()
 
   const mm = gsap.matchMedia()
   let destroyed = false
@@ -859,7 +854,7 @@ export function initAnimations() {
     cancelAnimationFrame(rafId)
 
     mm.revert()
-    scopes.forEach((scope) => scope.cleanup())
+    root.cleanup()
 
     gsap.ticker.remove(raf)
     gsap.ticker.lagSmoothing(500, 33)
