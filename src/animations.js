@@ -99,7 +99,6 @@ export function initAnimations() {
   const stickyImages = document.querySelectorAll('.home_principles-images-sticky')
 
   if (principleItems.length > 0 && stickyImages.length > 0) {
-    // Initial states: image 1 visible, others 0
     stickyImages.forEach((img, idx) => {
       img.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
       img.style.position = 'sticky'
@@ -212,18 +211,6 @@ export function initAnimations() {
         scrub: 1,
       },
     })
-
-    gsap.from('.home_experience-headline .gsap_split_word', {
-      scrollTrigger: {
-        trigger: expSection,
-        start: 'top 75%',
-      },
-      opacity: 0,
-      y: 30,
-      stagger: 0.04,
-      duration: 0.8,
-      ease: 'power3.out',
-    })
   }
 
   // 8. Teams Section
@@ -253,40 +240,69 @@ export function initAnimations() {
     })
   }
 
-  // 9. CTA Section (Scrub Scale & Reveal)
+  // 9. CTA Section (Exact Webflow Scrub Scale & Card Reveal)
   const ctaSection = document.querySelector('.section-cta_component')
-  const ctaImage = document.querySelector('.section-cta_image-wrapper')
-  const ctaCard = document.querySelector('.section-cta_card-wrapper')
+  const ctaContainer = document.querySelector('.section-cta_container')
+  const ctaHeadline = document.querySelector('.section-cta_headline')
+  const ctaImageWrapper = document.querySelector('.section-cta_image-wrapper')
+  const ctaCardWrapper = document.querySelector('.section-cta_card-wrapper')
 
-  if (ctaSection) {
+  if (ctaSection && ctaContainer) {
+    if (ctaHeadline) {
+      gsap.set(ctaHeadline, { opacity: 1, y: 0, scale: 1 })
+    }
+    if (ctaImageWrapper) {
+      gsap.set(ctaImageWrapper, { scale: 0.45, opacity: 0, borderRadius: '24px' })
+    }
+    if (ctaCardWrapper) {
+      gsap.set(ctaCardWrapper, { opacity: 0, scale: 0.9, y: 40 })
+    }
+
     const ctaTl = gsap.timeline({
       scrollTrigger: {
         trigger: ctaSection,
-        start: 'top 70%',
-        end: 'center center',
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: ctaContainer,
         scrub: 0.8,
+        anticipatePin: 1,
       },
     })
 
-    if (ctaImage) {
-      ctaTl.fromTo(ctaImage, 
-        { scale: 0.85, opacity: 0.4 },
-        { scale: 1, opacity: 1, ease: 'power2.out' },
-        0
-      )
+    // Phase 1: Headline fades out and lifts as you scroll
+    if (ctaHeadline) {
+      ctaTl.to(ctaHeadline, {
+        opacity: 0,
+        y: -40,
+        duration: 0.35,
+        ease: 'power2.inOut',
+      }, 0)
     }
 
-    if (ctaCard) {
-      ctaTl.fromTo(ctaCard,
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'power3.out' },
-        0.3
-      )
+    // Phase 2: Plant/curved wall image scales up smoothly from small center to full bleed
+    if (ctaImageWrapper) {
+      ctaTl.to(ctaImageWrapper, {
+        scale: 1,
+        opacity: 1,
+        borderRadius: '0px',
+        duration: 0.55,
+        ease: 'power2.out',
+      }, 0.2)
+    }
+
+    // Phase 3: Woman aligner consultation card fades in and settles directly on top of the image
+    if (ctaCardWrapper) {
+      ctaTl.to(ctaCardWrapper, {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.4,
+        ease: 'power3.out',
+      }, 0.6)
     }
   }
 
   // 10. Navbar Scroll State
-  let lastScrollY = window.scrollY
   const navComponent = document.querySelector('.nav_component')
   if (navComponent) {
     window.addEventListener('scroll', () => {
@@ -296,7 +312,6 @@ export function initAnimations() {
       } else {
         navComponent.classList.remove('is-scrolled')
       }
-      lastScrollY = currentScrollY
     }, { passive: true })
   }
 

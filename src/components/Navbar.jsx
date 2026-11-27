@@ -1,7 +1,100 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   return (
-    <nav data-wf--navbar--variant="homepage" className="nav_component"><div className="padding-global"><div className="nav_container"><div className="nav_left-content"><a href="/" aria-current="page" className="nav_brand w-inline-block w--current"><div className="nav_brand-image-wrapper is-black"><img  sizes="(max-width: 1749px) 100vw, 1749px" srcset="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7a53af1e609fe493a_g3-p-500.png 500w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7a53af1e609fe493a_g3-p-800.png 800w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7a53af1e609fe493a_g3-p-1080.png 1080w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7a53af1e609fe493a_g3-p-1600.png 1600w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7a53af1e609fe493a_g3.png 1749w" alt="Velour nav logo" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7a53af1e609fe493a_g3.png" loading="lazy" className="nav_brand-image" /></div><div className="nav_brand-image-wrapper is-white"><img  sizes="(max-width: 1754px) 100vw, 1754px" srcset="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7653181ee39740694_g1-p-500.png 500w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7653181ee39740694_g1-p-800.png 800w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7653181ee39740694_g1-p-1080.png 1080w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7653181ee39740694_g1-p-1600.png 1600w, https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7653181ee39740694_g1.png 1754w" alt="Velour nav logo" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7653181ee39740694_g1.png" loading="lazy" className="nav_brand-image" /></div></a><div className="nav_menu"><a href="/" aria-current="page" className="nav_menu-item w-inline-block w--current"><div>Home</div></a><a href="/about" className="nav_menu-item w-inline-block"><div>About </div></a><a href="/services" className="nav_menu-item w-inline-block"><div>Services</div></a><a href="/contact" className="nav_menu-item w-inline-block"><div>Contact</div></a></div></div><div className="nav_right-content"><div className="nav_phone"><div className="nav_phone-white"><a data-wf--nav-phone-text-icon--variant="white" data-wf-component-id="576eefa5-0f3e-9f92-ced1-693ad98eb166" data-wf-variant-state="68ce3824-69bc-516f-2337-9da597a54fb8" href="tel:+1(310)555-2486" className="nav-phone-text-icon_component w-variant-68ce3824-69bc-516f-2337-9da597a54fb8 w-inline-block"><div className="nav-phone-text-icon_container"><div className="nav-phone-text-icon_icon-wrapper is-black w-variant-68ce3824-69bc-516f-2337-9da597a54fb8"><div className="nav-phone-text-icon_icon is-absolute"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg" alt="" className="icon-1x1-small" /></div><div className="nav-phone-text-icon_icon is-static"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg" alt="" className="icon-1x1-small" /></div></div><div className="nav-phone-text-icon_icon-wrapper is-white w-variant-68ce3824-69bc-516f-2337-9da597a54fb8"><div className="nav-phone-text-icon_icon is-absolute"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fdf015fc7c01415b431afa_phone-fill%20(1).svg" alt="" className="icon-1x1-small" /></div><div className="nav-phone-text-icon_icon is-static"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fdf015fc7c01415b431afa_phone-fill%20(1).svg" alt="" className="icon-1x1-small" /></div></div></div><div className="text-weight-medium">+1 (310) 555-2486</div></a></div><div className="nav_phone-black"><a data-wf--nav-phone-text-icon--variant="black" data-wf-component-id="576eefa5-0f3e-9f92-ced1-693ad98eb166" data-wf-variant-state="base" href="#" className="nav-phone-text-icon_component w-inline-block"><div className="nav-phone-text-icon_container"><div className="nav-phone-text-icon_icon-wrapper is-black"><div className="nav-phone-text-icon_icon is-absolute"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg" alt="" className="icon-1x1-small" /></div><div className="nav-phone-text-icon_icon is-static"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg" alt="" className="icon-1x1-small" /></div></div><div className="nav-phone-text-icon_icon-wrapper is-white"><div className="nav-phone-text-icon_icon is-absolute"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fdf015fc7c01415b431afa_phone-fill%20(1).svg" alt="" className="icon-1x1-small" /></div><div className="nav-phone-text-icon_icon is-static"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fdf015fc7c01415b431afa_phone-fill%20(1).svg" alt="" className="icon-1x1-small" /></div></div></div><div className="text-weight-medium">+1 (310) 555-2486</div></a></div></div><div className="nav_cta"><div className="nav_cta-white"><a data-wf--button-nav--variant="white" data-wf-component-id="1d06b8f9-0d1a-57da-6324-3a0269c50ad3" data-wf-variant-state="717cac5e-ce00-048b-d6dd-956a1b3ec778" href="https://acuityscheduling.com/" className="button is-nav w-variant-717cac5e-ce00-048b-d6dd-956a1b3ec778 w-inline-block"><div className="button_text-wrapper"><div className="button_text is-static"><div>Book Appointment</div></div><div className="button_text is-absolute"><div>Book Appointment</div></div></div><div className="button_icon-nav"><div className="button_bullet-nav w-variant-717cac5e-ce00-048b-d6dd-956a1b3ec778"></div></div></a></div><div className="nav_cta-black"><a data-wf--button-nav--variant="black" data-wf-component-id="1d06b8f9-0d1a-57da-6324-3a0269c50ad3" data-wf-variant-state="base" href="https://acuityscheduling.com/" className="button is-nav w-inline-block"><div className="button_text-wrapper"><div className="button_text is-static"><div>Book Appointment</div></div><div className="button_text is-absolute"><div>Book Appointment</div></div></div><div className="button_icon-nav"><div className="button_bullet-nav"></div></div></a></div></div><div className="nav_phone-mobile"><a data-wf-component-id="c5c93ca1-a6f8-d7d8-1db9-c730eed3620f" data-wf-variant-state="base" href="#" className="button-icon_component w-inline-block"><div className="button-icon_icon-wrapper"><div className="button-icon_icon is-static"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg" alt="" className="icon-1x1-medium" /></div><div className="button-icon_icon is-absolute"><img  loading="lazy" src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg" alt="" className="icon-1x1-medium" /></div></div></a></div><div className="nav_menu-trigger-mobile"><div className="nav_menu-trigger-mobile-button"><div className="nav_menu-trigger-mobile-line-wrapper"><div className="nav_menu-trigger-mobile-line"></div><div className="nav_menu-trigger-mobile-line is-middle"></div><div className="nav_menu-trigger-mobile-line is-bottom"></div></div></div></div></div></div></div></nav>
+    <nav data-wf--navbar--variant="homepage" className="nav_component">
+      <div className="padding-global">
+        <div className="nav_container">
+          <div className="nav_left-content">
+            <a href="/" aria-current="page" className="nav_brand w-inline-block w--current">
+              <div className="nav_brand-image-wrapper is-black">
+                <img
+                  sizes="(max-width: 1749px) 100vw, 1749px"
+                  src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69e7ada7a53af1e609fe493a_g3.png"
+                  alt="Velour nav logo"
+                  loading="lazy"
+                  className="nav_brand-image"
+                />
+              </div>
+            </a>
+            <div className={`nav_menu ${mobileOpen ? 'is-open' : ''}`}>
+              <a href="#about" className="nav_menu-item w-inline-block"><div>About</div></a>
+              <a href="#services" className="nav_menu-item w-inline-block"><div>Services</div></a>
+              <a href="#team" className="nav_menu-item w-inline-block"><div>Team</div></a>
+              <a href="#contact" className="nav_menu-item w-inline-block"><div>Contact</div></a>
+            </div>
+          </div>
+
+          <div className="nav_right-content">
+            {/* Single Phone Link */}
+            <div className="nav_phone">
+              <a href="tel:+1(310)555-2486" className="nav-phone-text-icon_component w-inline-block">
+                <div className="nav-phone-text-icon_container">
+                  <div className="nav-phone-text-icon_icon-wrapper is-white">
+                    <div className="nav-phone-text-icon_icon is-static">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg"
+                        alt=""
+                        className="icon-1x1-small"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="text-weight-medium">+1 (310) 555-2486</div>
+              </a>
+            </div>
+
+            {/* Single Book Appointment Button */}
+            <div className="nav_cta">
+              <a
+                href="https://acuityscheduling.com/"
+                className="button is-nav w-variant-717cac5e-ce00-048b-d6dd-956a1b3ec778 w-inline-block"
+              >
+                <div className="button_text-wrapper">
+                  <div className="button_text is-static"><div>Book Appointment</div></div>
+                  <div className="button_text is-absolute"><div>Book Appointment</div></div>
+                </div>
+                <div className="button_icon-nav">
+                  <div className="button_bullet-nav w-variant-717cac5e-ce00-048b-d6dd-956a1b3ec778"></div>
+                </div>
+              </a>
+            </div>
+
+            {/* Mobile phone & trigger */}
+            <div className="nav_phone-mobile">
+              <a href="tel:+1(310)555-2486" className="button-icon_component w-inline-block">
+                <div className="button-icon_icon-wrapper">
+                  <div className="button-icon_icon is-static">
+                    <img
+                      loading="lazy"
+                      src="https://cdn.prod.website-files.com/69e5ea8d86a2ce4cb8ddf9dc/69fb57a43e40cd72e8fcb1e1_phone-fill.svg"
+                      alt=""
+                      className="icon-1x1-medium"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div
+              className="nav_menu-trigger-mobile"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="nav_menu-trigger-mobile-button">
+                <div className="nav_menu-trigger-mobile-line-wrapper">
+                  <div className="nav_menu-trigger-mobile-line"></div>
+                  <div className="nav_menu-trigger-mobile-line is-middle"></div>
+                  <div className="nav_menu-trigger-mobile-line is-bottom"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   )
 }

@@ -59,15 +59,55 @@ body {
   opacity: 0.6 !important;
 }
 
-.section-cta_image-wrapper {
-  display: block !important;
-  opacity: 1 !important;
-  transform: none !important;
+/* CTA overrides removed to allow GSAP scroll scrub */
+.section-cta_component {
+  position: relative;
+  height: 250vh;
+  background-color: var(--background-color--background-tertiary, #edebe5);
+}
+
+.section-cta_container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.section-cta_headline-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .section-cta_card-wrapper {
-  opacity: 1 !important;
-  transform: none !important;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+/* Hide duplicate navbar buttons */
+.nav_phone-black,
+.nav_cta-black {
+  display: none !important;
+}
+
+/* Hide unsubmitted form status messages */
+.w-form-done,
+.w-form-fail,
+.form_message-success,
+.form_message-error {
+  display: none !important;
 }
 
 .sf-hidden {

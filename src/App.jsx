@@ -10,22 +10,17 @@ import Teams from './components/Teams'
 import Testimonials from './components/Testimonials'
 import CtaSection from './components/CtaSection'
 import Footer from './components/Footer'
+import { initAnimations } from './animations'
 
 export default function App() {
   useEffect(() => {
-    const triggerAnimations = () => {
-      // 1. Initialize Lenis if not already initialized
-      if (window.Lenis && !window.lenis) {
-        window.lenis = new window.Lenis({
-          smoothWheel: true,
-          smoothTouch: false,
-          lerp: 0.1,
-          wheelMultiplier: 1,
-          autoRaf: true,
-        })
-      }
+    let cleanup = null
 
-      // 2. Trigger native Webflow IX3 animations
+    const timer = setTimeout(() => {
+      // 1. Initialize Lenis & GSAP ScrollTriggers
+      cleanup = initAnimations()
+
+      // 2. Trigger native Webflow IX3 if present
       if (typeof window.initVelourIX3 === 'function') {
         window.initVelourIX3()
       }
@@ -34,10 +29,12 @@ export default function App() {
       if (window.Webflow && typeof window.Webflow.ready === 'function') {
         window.Webflow.ready()
       }
-    }
+    }, 150)
 
-    const timer = setTimeout(triggerAnimations, 150)
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      if (cleanup) cleanup()
+    }
   }, [])
 
   return (
