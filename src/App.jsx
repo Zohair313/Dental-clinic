@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,8 +10,17 @@ import Teams from './components/Teams'
 import Testimonials from './components/Testimonials'
 import CtaSection from './components/CtaSection'
 import Footer from './components/Footer'
+import { initAnimations } from './animations'
 
 export default function App() {
+  useEffect(() => {
+    // Small delay to ensure DOM is fully painted
+    const timer = setTimeout(() => {
+      initAnimations()
+    }, 50)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div className="page-wrapper">
       <Navbar />
