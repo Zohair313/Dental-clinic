@@ -21,9 +21,9 @@ export default function Navbar() {
               </div>
             </a>
             <div className={`nav_menu ${mobileOpen ? 'is-open' : ''}`}>
+              <a href="/" aria-current="page" className="nav_menu-item w-inline-block w--current"><div>Home</div></a>
               <a href="#about" className="nav_menu-item w-inline-block"><div>About</div></a>
               <a href="#services" className="nav_menu-item w-inline-block"><div>Services</div></a>
-              <a href="#team" className="nav_menu-item w-inline-block"><div>Team</div></a>
               <a href="#contact" className="nav_menu-item w-inline-block"><div>Contact</div></a>
             </div>
           </div>

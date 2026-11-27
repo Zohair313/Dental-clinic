@@ -95,8 +95,9 @@ function createScope() {
     const tl = timeline()
     build(tl, trigger)
 
+    // Webflow IX3 default toggleActions is "play none none none".
     const actions = [
-      config.enter || 'none',
+      config.enter || 'play',
       config.leave || 'none',
       config.enterBack || 'none',
       config.leaveBack || 'none',
