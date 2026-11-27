@@ -10,14 +10,33 @@ import Teams from './components/Teams'
 import Testimonials from './components/Testimonials'
 import CtaSection from './components/CtaSection'
 import Footer from './components/Footer'
-import { initAnimations } from './animations'
 
 export default function App() {
   useEffect(() => {
-    // Small delay to ensure DOM is fully painted
-    const timer = setTimeout(() => {
-      initAnimations()
-    }, 50)
+    const triggerAnimations = () => {
+      // 1. Initialize Lenis if not already initialized
+      if (window.Lenis && !window.lenis) {
+        window.lenis = new window.Lenis({
+          smoothWheel: true,
+          smoothTouch: false,
+          lerp: 0.1,
+          wheelMultiplier: 1,
+          autoRaf: true,
+        })
+      }
+
+      // 2. Trigger native Webflow IX3 animations
+      if (typeof window.initVelourIX3 === 'function') {
+        window.initVelourIX3()
+      }
+
+      // 3. Notify Webflow
+      if (window.Webflow && typeof window.Webflow.ready === 'function') {
+        window.Webflow.ready()
+      }
+    }
+
+    const timer = setTimeout(triggerAnimations, 150)
     return () => clearTimeout(timer)
   }, [])
 
