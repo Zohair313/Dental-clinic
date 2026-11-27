@@ -1,15 +1,18 @@
 import fs from 'node:fs'
-const f = 'C:/Users/zohair/AppData/Local/Temp/opencode/velour-site.js'
-const s = fs.readFileSync(f, 'utf8')
-const out = []
-const log = (...args) => out.push(args.join(' '))
-for (const key of ['gsap', 'SplitText', 'ScrollTrigger', 'Lenis', 't-', 'id:"i-', 'from(', 'to(', 'set(']) {
-  log('\n=== ' + key + ' ===')
-  let i = -1
-  let n = 0
-  while ((i = s.indexOf(key, i + 1)) !== -1 && n < 30) {
-    log('--- @' + i + ' ---\n' + s.slice(Math.max(0, i - 180), Math.min(s.length, i + 420)))
-    n++
+const [interactions, timelines] = JSON.parse(fs.readFileSync('C:/Users/zohair/AppData/Local/Temp/opencode/velour-ix3.json', 'utf8'))
+const tl = Object.fromEntries(timelines.map((t) => [t.id, t]))
+for (const ix of interactions) {
+  console.log('\nINTERACTION ' + ix.id + ' scope=' + JSON.stringify(ix.scope))
+  for (const trig of ix.triggers) {
+    console.log('  TRIGGER ' + trig[0] + ' ' + JSON.stringify(trig[1]) + ' -> ' + JSON.stringify(trig[2]))
+  }
+  console.log('  timelineIds: ' + ix.timelineIds.join(', '))
+  console.log('  conditionalPlayback: ' + JSON.stringify(ix.conditionalPlayback || null))
+  for (const id of ix.timelineIds) {
+    const t = tl[id]
+    console.log('  TIMELINE ' + id)
+    for (const a of t?.actions || []) {
+      console.log('    ' + JSON.stringify(a))
+    }
   }
 }
-fs.writeFileSync('C:/Users/zohair/AppData/Local/Temp/opencode/velour-site-dump.txt', out.join('\n'), 'utf8')
